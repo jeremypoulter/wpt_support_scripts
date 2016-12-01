@@ -1,0 +1,23 @@
+language: generic
+env:
+  - REPO=web-platform-test
+    TO_USER=jeremypoulter
+    TO_BRANCH=w3c_tracking
+    FROM="w3c master $TO_USER master"
+  - REPO=web-platform-test
+    TO_USER=jeremypoulter
+    TO_BRANCH=w3c_mirror
+    FROM="w3c master $TO_USER master"
+  - REPO=wpt-tools
+    TO_USER=jeremypoulter
+    TO_BRANCH=w3c_tracking
+    FROM="w3c master $TO_USER master"
+  - REPO=wpt-tools
+    TO_USER=jeremypoulter
+    TO_BRANCH=w3c_mirror
+    FROM="w3c master $TO_USER master"
+before_install:
+  - openssl aes-256-cbc -K $encrypted_9ce34ca6180d_key -iv $encrypted_9ce34ca6180d_iv -in keys/web-platform-test.pem.enc -out keys/web-platform-test.pem -d
+  - openssl aes-256-cbc -K $encrypted_9ce34ca6180d_key -iv $encrypted_9ce34ca6180d_iv -in keys/wpt-tools.pem.enc -out keys/wpt-tools.pem -d
+script:
+  - ssh-agent bash -c "ssh-add keys/$REPO.pem; bash fork_sync.sh $REPO $TO_USER $TO_BRANCH $FROM"
