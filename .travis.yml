@@ -1,19 +1,19 @@
 language: generic
 env:
   - REPO=web-platform-tests
-    TO_USER=jeremypoulter
+    TO_USER=$(echo $TRAVIS_REPO_SLUG | cut -d/ -f1)
     TO_BRANCH=w3c_tracking
     FROM="w3c master $TO_USER master"
   - REPO=web-platform-tests
-    TO_USER=jeremypoulter
+    TO_USER=$(echo $TRAVIS_REPO_SLUG | cut -d/ -f1)
     TO_BRANCH=w3c_mirror
     FROM="w3c master"
   - REPO=wpt-tools
-    TO_USER=jeremypoulter
+    TO_USER=$(echo $TRAVIS_REPO_SLUG | cut -d/ -f1)
     TO_BRANCH=w3c_tracking
     FROM="w3c master $TO_USER master"
   - REPO=wpt-tools
-    TO_USER=jeremypoulter
+    TO_USER=$(echo $TRAVIS_REPO_SLUG | cut -d/ -f1)
     TO_BRANCH=w3c_mirror
     FROM="w3c master"
 before_install:
