@@ -1,10 +1,10 @@
 language: generic
 env:
-  - REPO=web-platform-test
+  - REPO=web-platform-tests
     TO_USER=jeremypoulter
     TO_BRANCH=w3c_tracking
     FROM="w3c master $TO_USER master"
-  - REPO=web-platform-test
+  - REPO=web-platform-tests
     TO_USER=jeremypoulter
     TO_BRANCH=w3c_mirror
     FROM="w3c master $TO_USER master"
