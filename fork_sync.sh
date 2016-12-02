@@ -92,7 +92,7 @@ do
     msg "### Merging ${REPO} from ${FROM_USER}/${FROM_BRANCH}"
     git config user.name "WPT Auto Merger" || abort
     git config user.email "wpt.am@dlna.org" || abort
-    git merge ${FROM_USER}/${FROM_BRANCH} --allow-unrelated-histories --no-edit || abort
+    git merge ${FROM_USER}/${FROM_BRANCH} --no-edit || abort
 
     shift 2
 done
